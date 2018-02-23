@@ -1,0 +1,111 @@
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "materialize";
+
+ .card.horizontal {
+   height: 100%;
+ }
+
+ .card-action {
+   text-align: center;
+ }
+
+ #card-action {
+   background: #36e29d;
+   &:hover {
+     background: #34a853 ;
+   }
+ }
+
+ #card-action a {
+   color: white;
+ }
+
+ .slider {
+   border-radius: 1em;
+   padding-top: 0px;
+ }
+
+ .masthead clearfix {
+   background: #36e29d;
+ }
+
+.event-map {
+  width: 95%;
+
+}
+
+.event-main-image {
+  width: 100%;
+}
+
+.show-top-row {
+  // max-height: 400px;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+  background-color: #0f2937;
+
+}
+
+#map {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-wrapper {
+  padding: 0px;
+  margin:0px;
+  background-color: #0f2937;
+}
+
+.show-row {
+  margin: 0px;
+  padding: 0px;
+}
+
+.show-hide-over {
+  overflow:hidden;
+}
+
+#show-info {
+  background-color: #0f2937;
+  color: white;
+  padding: 15px;
+}
+
+.show-title-span {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3em;
+  color: #34a853;
+  font-weight: 800;
+}
+
+.nav-masthead {
+   background-color: black;
+   padding-left: 20px;
+}
+
+.nav-masthead a{
+  padding-left: 20px;
+}
