@@ -25,7 +25,7 @@
               <p><%= event.description %></p>
           
               <p><%= "Event took place at #{event.location}." %></p>
-
+              <% end %>
     <% @sidebarevents.each do |event| %>
       <div class="album text-muted">
         <div class="container">
@@ -42,9 +42,6 @@
                   <p><%= event.description %></p>
               
                   <p><%= "Event took place at #{event.location}." %></p>
-                  <% if user_signed_in? %>
-                    <%= link_to "favorite",   favorited_event_path(event, type: "favorite"), method: :put %>
-                  <% end %>
                 </div>
               </div>
               <hr>
