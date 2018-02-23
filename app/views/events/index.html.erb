@@ -18,6 +18,7 @@
               <p><%= event.description %></p>
           
               <p><%= "Event took place at #{event.location}." %></p>
+              <%= link_to "favorite",   favorite_event_path(event, type: "favorite"), method: :put %>
             </div>
           </div>
           <hr>
@@ -26,3 +27,4 @@
     </div>
   </div>
 <% end %>
+
