@@ -5,9 +5,11 @@ class EventsController < ApplicationController
     if user_signed_in?
       if current_user.role == :admin
         @events = Event.where(start: params[:start]..params[:end])
+      else
+        @events = current_userevents.where(start: params[:start]..params[:end])
       end
     else 
-      @events = Event.where(start: params[:start]..params[:end])
+      @events = Event.where(start: params[:start]..params[:end]) #SETUPPROVAL
     end 
   end
 
