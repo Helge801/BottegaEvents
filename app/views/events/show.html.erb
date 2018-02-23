@@ -17,7 +17,13 @@
       </div>
 
       <div class="col-md-5" id="map">
-        <img class="event-map" src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=" + @location + "&zoom=13&scale=1&size=600x400&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C" + @location %>">
+          <iframe
+           width="400"
+           height="300"
+           frameborder="0" style="border:0"
+           src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDF5J93Eakk2D-gxiHYmPDA-vwwemgTxLQ
+             &q=<%= @event.location %>" allowfullscreen>
+          </iframe>
       </div>
         <div class="col-md-7" id="guest-form">
           <form action="#" method="post">
