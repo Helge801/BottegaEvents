@@ -9,9 +9,26 @@
 
   <div class="col-md-4">
 
-    <% @sidebarevents.each do |event| %>
-      <div class="album text-muted">
-        <div class="container">
+<!--  <% @events.each do |event| %>
+  <div class="album text-muted">
+    <div class="container">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="column-left">
+               <h3 class="event-title"><%= link_to event.title.titleize, event %></h3>
+              <%= image_tag "#{event.thumb_image}", width: 300, height: 300 %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="column-right">
+              <p><%= event.description %></p>
+          
+              <p><%= "Event took place at #{event.location}." %></p>
+              <% end %> -->
+              <h3>Favorited</h3>
+<% current_user.favorites.each do |event| %>
+
           <div class="card">
             <div class="row">
               <div class="col-md-6">
@@ -25,17 +42,75 @@
                   <p><%= event.description %></p>
               
                   <p><%= "Event took place at #{event.location}." %></p>
-                  <% if user_signed_in? %>
-                    <%= link_to "favorite",   favorited_event_path(event, type: "favorite"), method: :put %>
-                  <% end %>
+                  <%= link_to "unfavorite", favorite_event_path(event, type: "unfavorite"), method: :put %>
+
+                  <div><%= link_to "attend", rsvp_event_path(event, type: "attending"), method: :put %>
+    <%= link_to "Not Attending", rsvp_event_path(event, type: "unattending"), method: :put %>             </div>
                 </div>
               </div>
               <hr>
             </div>
           </div>
-        </div>
-      </div>
+
+    <% end %>
+    <h3>Attending</h3>
+    <% current_user.rsvps.each do |event| %>
+
+          <div class="card">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="column-left">
+                   <h5 class="event-title"><%= link_to event.title, event %></h5>
+                  <%= image_tag "#{event.thumb_image}", width: 300, height: 300 %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="column-right">
+                  <p><%= event.description %></p>
+              
+                  <p><%= "Event took place at #{event.location}." %></p>
+                  <%= link_to "unfavorite", favorite_event_path(event, type: "unfavorite"), method: :put %>
+
+                  <div><%= link_to "Not Attending", rsvp_event_path(event, type: "unattending"), method: :put %>
+    <%= link_to "Not Attending", rsvp_event_path(event, type: "unattending"), method: :put %>             </div>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+
     <% end %>
   </div>
 </div>
 
+<!-- <div>
+  <% if user_signed_in? %>
+    <% current_user.events.each do |event|  %>
+    <%= event.title %>
+    <%= link_to "favorite", favorite_event_path(event, type: "favorite"), method: :put %>
+    <%= link_to "unfavorite", favorite_event_path(event, type: "unfavorite"), method: :put %>
+
+    <%= link_to "attend", rsvp_event_path(event, type: "attending"), method: :put %>
+    <%= link_to "Not Attending", rsvp_event_path(event, type: "unattending"), method: :put %>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <hr>
+  <% if user_signed_in? %>
+    <% current_user.favorites.each do |event| %>
+    <%= event.title %>
+    <% end %>
+  <% end %>
+
+</div>
+
+<hr>
+
+<div>
+<% if user_signed_in? %>
+  <% current_user.rsvps.each do |event| %>
+  <%= event.title %>
+  <% end %>
+<% end %>
+</div> -->
