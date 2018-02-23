@@ -51,11 +51,11 @@
             <div class="container">
               <div class='contact-btn-wrapper'>
                 <% if user_signed_in? %>
-                  <%= link_to 'Edit', edit_event_path(@event), class: 'btn btn-primary' %>
-                  <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
-                  <%= link_to 'Back', events_path, class: 'btn btn-primary' %>
+                  <%= link_to 'Edit', edit_event_path(@event), class: 'btn btn-lg btn-primary-1' %>
+                  <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-lg btn-primary-1' %>
+                <%= link_to 'Back', events_path, class: 'btn btn-lg btn-primary-1' %>
                 <% else %>
-                  <%= link_to 'Back', events_path, class: 'btn btn-primary'%>
+                <%= link_to 'Back', events_path, class: 'btn btn-lg btn-primary-1'%>
                 <% end %>
               </div>
             </div>
