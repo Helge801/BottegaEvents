@@ -6,7 +6,13 @@ class Event < ApplicationRecord
 
   enum status: {pending: 0, approved: 1, rejected: 2}
 
-	belongs_to :user
+  belongs_to :user
+
+  has_many :favorite_events
+  has_many :favorited_by, through: :favorite_events, source: :user
+  
+  has_many :rsvp_events
+  has_many :rsvped_by, through: :rsvp_events, source: :user
 
   mount_uploader :image, EventUploader
   mount_uploader :thumb_image, EventUploader

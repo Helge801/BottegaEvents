@@ -1,12 +1,12 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :favorite, :rsvp]
 
   def index
     if user_signed_in?
       if current_user.role == :admin
         @events = Event.where(start: params[:start]..params[:end])
       else
-        @events = current_userevents.where(start: params[:start]..params[:end])
+        @events = current_user.events.where(start: params[:start]..params[:end])
       end
     else 
       @events = Event.where(start: params[:start]..params[:end]) #SETUPPROVAL
@@ -44,16 +44,33 @@ class EventsController < ApplicationController
     @event.destroy
   end
 
-  def favorited
+  def favorite
+
     type = params[:type]
     if type == "favorite"
-      current_user.favorited << @event
+      User.find(current_user.id).favorites << @event
+      redirect_to root_path, notice: 'You favorited #{@event.title}'
 
     elsif type == "unfavorite"
-      current_user.favorited.delete(@event)
+      current_user.favorites.delete(@event)
+      redirect_to root_path, notice: 'You unfavorited #{@event.title}'
 
     end
   end
+
+  def rsvp
+    type = params[:type]
+    if type == "attending"
+      User.find(current_user.id).rsvps << @event
+      redirect_to root_path, notice: 'You attend #{@event.title}'
+
+    elsif type == "unattending"
+      current_user.rsvps.delete(@event)
+      redirect_to root_path, notice: 'You unattend #{@event.title}'
+    end
+  end
+
+
 
   private
     def set_event

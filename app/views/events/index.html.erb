@@ -18,7 +18,7 @@
               <p><%= event.description %></p>
           
               <p><%= "Event took place at #{event.location}." %></p>
-              <%= link_to "favorite",   favorite_event_path(event, type: "favorite"), method: :put %>
+
             </div>
           </div>
           <hr>
@@ -28,3 +28,28 @@
   </div>
 <% end %>
 
+<div>
+  <% current_user.events.each do |event|  %>
+  <%= event.title %>
+  <%= link_to "favorite", favorite_event_path(event, type: "favorite"), method: :put %>
+  <%= link_to "unfavorite", favorite_event_path(event, type: "unfavorite"), method: :put %>
+
+  <%= link_to "attend", rsvp_event_path(event, type: "attending"), method: :put %>
+  <%= link_to "Not Attending", rsvp_event_path(event, type: "unattending"), method: :put %>
+  <% end %>
+</div>
+<div>
+  <hr>
+    <% current_user.favorites.each do |event| %>
+    <%= event.title %>
+    <% end %>
+
+</div>
+
+<hr>
+
+<div>
+  <% current_user.rsvps.each do |event| %>
+  <%= event.title %>
+  <% end %>
+</div>
