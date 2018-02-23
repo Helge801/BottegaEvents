@@ -3,32 +3,27 @@
 <div class="container show-hide-over event-show-container">
   <div class="card show-wrapper show-hide-over">
     <div class="row show-row show-hide-over">
-      <div class="col-md-8 show-top-row">
-        <<%= image_tag @event.image, class: "event-main-image" %>
-      <span class="show-title-span"><%= @event.title %></span>
+      <div class="show-top-row">
+        <%= image_tag @event.image, class: "event-main-image" %>
+<!--       <span class="show-title-span"><%= @event.title %></span> -->
       </div>
-      <div class="col-md-4" id="show-info">
-        <p><%= @event.date %></p>
-<!--         <p>Description: <%= @event.body %></p> -->
-        <p><%= @event.location %>
-        <p>Host: <%= @event.user.name %>
-
-<!--         <p>Attendees: dynamic</p>
-        <button class></button>
-        Are you going? -->
-      </div>
+      
 
       <div class="col-md-5" id="map">
           <iframe
-           width=" 450"
-           height="400"
+           width="500"
+           height="500"
            frameborder="0" style="border:0"
            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDF5J93Eakk2D-gxiHYmPDA-vwwemgTxLQ
              &q= 380 N 850th E Lehi, UT 84043" allowfullscreen>
           </iframe>
       </div>
         <div class="col-md-7" id="guest-form">
+          <p><span><h3><%= @event.title %></h3></span></p>
           <p><span><%= @event.body %></span></p>
+          <p><span><%= @event.date %></span></p>
+          <p><span>Host: <%= @event.user.name %></span></p>
+
 
 <!--           <form action="#" method="post">
             <div class="form-group">
