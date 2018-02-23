@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container show-hide-over">
+<div class="container show-hide-over event-show-container">
   <div class="card show-wrapper show-hide-over">
     <div class="row show-row show-hide-over">
       <div class="col-md-8 show-top-row">
@@ -17,7 +17,13 @@
       </div>
 
       <div class="col-md-5" id="map">
-        <img class="event-map" src="<%= "https://maps.googleapis.com/maps/api/staticmap?center=" + @location + "&zoom=13&scale=1&size=600x400&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:1%7C" + @location %>">
+          <iframe
+           width=" 450"
+           height="400"
+           frameborder="0" style="border:0"
+           src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDF5J93Eakk2D-gxiHYmPDA-vwwemgTxLQ
+             &q= 380 N 850th E Lehi, UT 84043" allowfullscreen>
+          </iframe>
       </div>
         <div class="col-md-7" id="guest-form">
           <form action="#" method="post">
@@ -29,21 +35,23 @@
             </div>
             <input placeholder="Number of people attending" rows="15" class="form-control" id="contact-body"></input>
             </div>
-            <div class="form-group contact-btn-wrapper">
-              <button type="submit" class="btn btn-primary contact-btn">Send</button>
+<!--             <div class="form-group contact-btn-wrapper">
+              <button type="submit" class="btn btn-primary  form-control">Send</button>
+            </div> -->
+            <div class='contact-btn-wrapper'>
+              <% if user_signed_in? %>
+                <%= link_to 'Edit', edit_event_path(@event), class: 'btn btn-primary-1' %>
+                <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary-1' %>
+                <%= link_to 'Back', events_path, class: 'btn btn-primary-1' %>
+              <% else %>
+                <%= link_to 'Back', events_path, class: 'btn btn-primary-1'%>
+              <% end %>
+            </div>
+            <div class="container">
             </div>
           </form>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <% if user_signed_in? %>
-        <%= link_to 'Edit', edit_event_path(@event) %>
-        <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Back', events_path %>
-      <% else %>
-        <%= link_to 'Back', events_path %>
-      <% end %>
     </div>
   </div>
 </div>
