@@ -27,6 +27,7 @@
               <p><%= "Event took place at #{event.location}." %></p>
               <% end %> -->
               <h3>Favorited</h3>
+              <% if user_signed_in? %>
 <% current_user.favorites.each do |event| %>
 
           <div class="card">
@@ -53,7 +54,9 @@
           </div>
 
     <% end %>
+    <% end %>
     <h3>Attending</h3>
+    <% if user_signed_in? %>
     <% current_user.rsvps.each do |event| %>
 
           <div class="card">
@@ -79,6 +82,7 @@
             </div>
           </div>
 
+    <% end %>
     <% end %>
   </div>
 </div>
