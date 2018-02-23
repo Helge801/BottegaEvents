@@ -2,10 +2,12 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    if current_user.role == :admin
-      @events = Event.where(start: params[:start]..params[:end])
+    if user_signed_in?
+      if current_user.role == :admin
+        @events = Event.where(start: params[:start]..params[:end])
+      end
     else 
-      @events = Event.where(start: params[:start]..params[:end]).events_by(current_user)
+      @events = Event.where(start: params[:start]..params[:end])
     end 
   end
 
