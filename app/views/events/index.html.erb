@@ -8,32 +8,8 @@
   </div>
 
   <div class="col-md-4">
+    <%= render 'shared/all_events' %>
 
-    <% @sidebarevents.each do |event| %>
-      <div class="album text-muted">
-        <div class="container">
-          <div class="card">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="column-left">
-                   <h3 class="event-title"><%= link_to event.title.titleize, event %></h3>
-                  <%= image_tag "#{event.thumb_image}", width: 300, height: 300 %>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="column-right">
-                  <p><%= event.description %></p>
-              
-                  <p><%= "Event took place at #{event.location}." %></p>
-                  <%= link_to "favorite",   favorited_event_path(event, type: "favorite"), method: :put %>
-                </div>
-              </div>
-              <hr>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
 
