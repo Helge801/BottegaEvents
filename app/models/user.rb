@@ -14,8 +14,12 @@ class User < ApplicationRecord
 		 :recoverable, :rememberable, :trackable, :validatable
 
 	has_many :events
+  
   has_many :favorite_events
-  has_many :favorites, through: :favorite_events, source: :events
+  has_many :favorites, through: :favorite_events, source: :event
+
+  has_many :rsvp_events
+  has_many :rsvps, through: :rsvp_events, source: :event
 
 	validates_presence_of :name
 end
