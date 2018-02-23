@@ -14,8 +14,6 @@ class Event < ApplicationRecord
   has_many :rsvp_events
   has_many :rsvped_by, through: :rsvp_events, source: :user
 
-  mount_uploader :image, EventUploader
-  mount_uploader :thumb_image, EventUploader
 
   attr_accessor :date_range
 

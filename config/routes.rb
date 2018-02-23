@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   root :to => 'events#index'
+
+  
 end

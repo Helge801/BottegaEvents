@@ -16,8 +16,17 @@
  *= require_tree .
  *= require_self
  */
+/*@import 'bootstrap';*/
 
- @import "bootstrap";
+
+.modal {
+  margin-left: 20%;
+  height: 435px;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 
  .card.horizontal {
    height: 100%;

@@ -1,44 +1,21 @@
-<%= form_with(model: event, local: true) do |form| %>
 
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :event_title %>
-  </div>
-  <div class="form-group">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :event_body %>
+<%= simple_form_for @event, remote: true do |f| %>
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :date_range, input_html: { class: "form-control input-sm date-range-picker" } %>
+    <%= f.input_field :start, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
+    <%= f.input_field :end, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
+    <%= f.input :color, as: :select, collection: [['Black','black'], ['Green','green'], ['Red','red']] %>
+
   </div>
 
-  <div class="form-group">
-    <%= form.label :location %>
-    <%= form.text_area :location, id: :event_location%>
-  </div>
-
-   <div class="form-group">
-    <%= form.label :date %>
-    <%= form.text_field :date, id: :event_date %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :image %>
-  </div>
-  <div class="form-group">
-    <%= form.label :thumb_image %>
-    <%= form.file_field :thumb_image, id: :thumb_image%>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to 'Delete', 
+                event, 
+                method: :delete, 
+                class: 'btn btn-danger', 
+                data: { confirm: 'Are you sure?' }, 
+                remote: true unless @event.new_record? %>
   </div>
 <% end %>
