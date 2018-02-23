@@ -48,11 +48,11 @@ def get_profile_image
 end
 
 def get_main_image
-  "https://picsum.photos/725/484?image=#{(0..100).to_a.sample}"
+  "https://picsum.photos/725/484?image=#{[*0..100].sample}"
 end
 
 def get_thumb_image
-  "https://picsum.photos/300/400?image=#{(101..200).to_a.sample}"
+  "https://picsum.photos/300/400?image=#{[*101..200].sample}"
 end
 
 def get_address
@@ -96,10 +96,9 @@ User.create!(
   )
 end
 
-
 puts "1 Admin User created"
-
-40.times do
+em get_main_image
+1.times do
 date = get_date
 Event.create!(title:Faker::Book.title,
               body: get_short_content,
@@ -115,3 +114,5 @@ Event.create!(title:Faker::Book.title,
               )
 
 end
+
+
