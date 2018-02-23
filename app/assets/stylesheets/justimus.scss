@@ -1,7 +1,5 @@
 @import "bootstrap";
 
-.event-show-container {
-}
 
 .contact-btn-wrapper {
   padding-top: 80px;
@@ -10,15 +8,20 @@
 
 }
 
-.btn-primary {
+.btn-primary-1 {
   background-color: #00b675;
+  color: white;
+  padding-right: 20px;
+
 }
 
 #guest-form span {
   font-size: 150%;
+}
 
-}#guest-form {
+#guest-form {
   padding-top: 20px;
+  padding-right: 20px;
 }
 
 #show-info {
@@ -27,6 +30,10 @@
 
 .event-show-container {
   border-radius: .50rem;
+}
+
+.show-row {
+  background-color: white;
 }
 
 
