@@ -2,11 +2,12 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    @sidebarevents = Event.all
     if user_signed_in?
       if current_user.role == :admin
         @events = Event.where(start: params[:start]..params[:end])
       else
-        @events = current_userevents.where(start: params[:start]..params[:end])
+        @events = current_user.events.where(start: params[:start]..params[:end])
       end
     else 
       @events = Event.where(start: params[:start]..params[:end]) #SETUPPROVAL
