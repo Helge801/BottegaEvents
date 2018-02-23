@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require rails-ujs
-//= require materialize
-//= require materialize-sprockets
-//= require bootstrap-sprockets
+//= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
+//= require moment
+//= require fullcalendar
+//= require daterangepicker
 //= require_tree .

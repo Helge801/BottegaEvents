@@ -40,6 +40,8 @@ gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 gem 'petergate', '~> 1.8', '>= 1.8.1'
 gem 'fullcalendar-rails', '~> 3.4'
 gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'simple_form', '~> 3.5', '>= 3.5.1'
 
 
 ruby "2.4.1"
