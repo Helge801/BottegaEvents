@@ -8,8 +8,6 @@ class Event < ApplicationRecord
 
 	belongs_to :user
 
-  mount_uploader :image, EventUploader
-  mount_uploader :thumb_image, EventUploader
 
   attr_accessor :date_range
 

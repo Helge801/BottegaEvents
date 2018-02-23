@@ -27,7 +27,13 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-    @event.save
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   def update
@@ -36,6 +42,17 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
+  end
+
+  def favorited
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorited << @event
+
+    elsif type == "unfavorite"
+      current_user.favorited.delete(@event)
+
+    end
   end
 
   private
