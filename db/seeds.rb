@@ -98,7 +98,7 @@ end
 
 puts "1 Admin User created"
 em get_main_image
-1.times do
+40.times do
 date = get_date
 Event.create!(title:Faker::Book.title,
               body: get_short_content,
