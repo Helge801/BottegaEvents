@@ -4,21 +4,22 @@
   <div class="card show-wrapper show-hide-over">
     <div class="row show-row show-hide-over">
       <div class="col-md-8 show-top-row">
-        <%= image_tag @event.image, class: "event-main-image" %>
-        <span class="show-title-span"><%= @event.title %></span>
+        <<%= image_tag @event.image, class: "event-main-image" %>
+      <span class="show-title-span"><%= @event.title %></span>
       </div>
       <div class="col-md-4" id="show-info">
-        <p>Date: <%= @event.date %></p>
-        <p>Description: <%= @event.body %></p>
-        <p>Location: <%= @event.location %>
-        <p>Attendees: dynamic</p>
+        <p><%= @event.date %></p>
+<!--         <p>Description: <%= @event.body %></p> -->
+        <p><%= @event.location %>
+        <p>Host: <%= @event.user.name %>
+
+<!--         <p>Attendees: dynamic</p>
         <button class></button>
-        Are you going?
+        Are you going? -->
       </div>
 
       <div class="col-md-5" id="map">
           <iframe
-<<<<<<< HEAD
            width=" 450"
            height="400"
            frameborder="0" style="border:0"
@@ -27,29 +28,32 @@
           </iframe>
       </div>
         <div class="col-md-7" id="guest-form">
-          <form action="#" method="post">
+          <p><span><%= @event.body %></span></p>
+
+<!--           <form action="#" method="post">
             <div class="form-group">
               <input placeholder="Name" rows="15" class="form-control" id="contact-body"></input>
             </div>
             <div class="form-group">
               <input type="email" placeholder="Email" class="form-control"></input>
             </div>
-            <input placeholder="Number of people attending" rows="15" class="form-control" id="contact-body"></input>
-            </div>
+            <input placeholder="Number of people attending" rows="15" class="form-control" id="contact-body"></input> -->
 <!--             <div class="form-group contact-btn-wrapper">
               <button type="submit" class="btn btn-primary  form-control">Send</button>
             </div> -->
-            <div class='contact-btn-wrapper'>
-              <% if user_signed_in? %>
-                <%= link_to 'Edit', edit_event_path(@event), class: 'btn btn-primary-1' %>
-                <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary-1' %>
-                <%= link_to 'Back', events_path, class: 'btn btn-primary-1' %>
-              <% else %>
-                <%= link_to 'Back', events_path, class: 'btn btn-primary-1'%>
-              <% end %>
-            </div>
             <div class="container">
+              <div class='contact-btn-wrapper'>
+                <% if user_signed_in? %>
+                  <%= link_to 'Edit', edit_event_path(@event), class: 'btn btn-primary-1' %>
+                  <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary-1' %>
+                  <%= link_to 'Back', events_path, class: 'btn btn-primary-1' %>
+                <% else %>
+                  <%= link_to 'Back', events_path, class: 'btn btn-primary-1'%>
+                <% end %>
+              </div>
             </div>
+        </div>
+
           </form>
         </div>
       </div>
