@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180223190410) do
     t.datetime "start"
     t.datetime "end"
     t.string "color"
+    t.integer "status", default: 0
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
