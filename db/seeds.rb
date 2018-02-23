@@ -85,7 +85,7 @@ User.create!(
   roles: "admin",
 )
 
-10.times do |i|
+1.times do |i|
   name = Faker::Book.author
   User.create!(
     email: "#{name.delete(' ')}@test.com",
@@ -98,7 +98,7 @@ end
 
 puts "1 Admin User created"
 em get_main_image
-40.times do
+70.times do
 date = get_date
 Event.create!(title:Faker::Book.title,
               body: get_short_content,

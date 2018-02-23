@@ -39,10 +39,12 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params)
+    redirect_to root_path
   end
 
   def destroy
     @event.destroy
+    redirect_to root_path
   end
 
   def favorited
